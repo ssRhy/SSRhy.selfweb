@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>work</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .sidebar {
+        width: 20%;
+        background-color: black;
+        min-height: 5px;
+        padding: 20px;
+      }
+      .main-content {
+        width: 70%;
+        padding: 30px;
+        margin-top: 10px;
+        margin-left: 20px;
+        display: flex;
+        gap: 30px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+      }
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        margin-top: 50px;
+      }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+      /* 修改后的卡片样式 */
+      .cards-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 100px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 0.3s forwards;
+      }
+      .card {
+        width: 250px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .card-content {
+        padding: 15px;
+        text-align: center;
+      }
+      .card h2 {
+        margin: 0;
+        color: #212121;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .card p {
+        margin: 0;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .cards-section {
+        flex: 0 0 auto;
+      }
+      .preview-section {
+        flex: 1;
+        padding: 20px;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        height: 100vh;
+        position: relative;
+      }
+      .preview-section.active {
+        display: flex;
+        opacity: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .works-grid {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 20px;
+        padding: 40px;
+      }
+      .work-item {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .work-item:hover {
+        transform: translateY(-5px);
+      }
+      .work-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .work-item h3 {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #333;
+      }
+      .work-item p {
+        color: #666;
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+      .work-link {
+        display: inline-block;
+        padding: 8px 15px;
+        background: #000;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      .work-link:hover {
+        background: #333;
+      }
+      .preview-section {
+        padding: 30px;
+        width: 100%;
+      }
+      .preview-section h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+      }
+      .preview-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+        opacity: 0;
+        transform: scale(0.9);
+        max-width: 400px;
+        max-height: 300px;
+      }
+      .preview-image.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      p {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      p:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      p:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html">First Page</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="work.html">Works</a></li>
+          <li><a href="contact.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <div class="cards-section">
+        <h1>My Works</h1>
+        <div class="cards-container">
+          <div class="card" data-preview="photography">
+            <div class="card-content">
+              <h2>Photography</h2>
+              <p>A collection of my best photographic works.</p>
+            </div>
+          </div>
+
+          <div class="card" data-preview="projects">
+            <div class="card-content">
+              <h2>Projects</h2>
+              <p>Technical projects and developments.</p>
+            </div>
+          </div>
+
+          <div class="card" data-preview="design">
+            <div class="card-content">
+              <h2>Design</h2>
+              <p>Creative designs and artistic works.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 预览区域 -->
+      <div class="preview-section" id="photography-preview">
+        <div class="works-grid">
+          <img
+            src="images/photo1.jpg"
+            alt="Photography 1"
+            class="preview-image"
+          />
+          <img
+            src="images/photo2.jpg"
+            alt="Photography 2"
+            class="preview-image"
+          />
+          <img
+            src="images/photo3.jpg"
+            alt="Photography 3"
+            class="preview-image"
+          />
+        </div>
+      </div>
+
+      <div class="preview-section" id="projects-preview">
+        <div class="works-grid">
+          <img
+            src="images/project1.jpg"
+            alt="Project 1"
+            class="preview-image"
+          />
+          <img
+            src="images/project2.jpg"
+            alt="Project 2"
+            class="preview-image"
+          />
+          <img
+            src="images/project3.jpg"
+            alt="Project 3"
+            class="preview-image"
+          />
+        </div>
+      </div>
+
+      <div class="preview-section" id="design-preview">
+        <div class="works-grid">
+          <img src="images/design1.jpg" alt="Design 1" class="preview-image" />
+          <img src="images/design2.jpg" alt="Design 2" class="preview-image" />
+          <img src="images/design3.jpg" alt="Design 3" class="preview-image" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      const previews = document.querySelectorAll(".preview-section");
+
+      // 定义网格位置数组
+      const gridPositions = [
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 2, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+        { x: 2, y: 1 },
+        { x: 0, y: 2 },
+        { x: 1, y: 2 },
+        { x: 2, y: 2 },
+      ];
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          previews.forEach((preview) => {
+            preview.classList.remove("active");
+          });
+
+          const previewType = card.dataset.preview;
+          const preview = document.getElementById(`${previewType}-preview`);
+
+          if (preview) {
+            preview.classList.add("active");
+            const images = preview.querySelectorAll(".preview-image");
+            const shuffledPositions = shuffleArray([...gridPositions]);
+
+            images.forEach((img, index) => {
+              if (index < shuffledPositions.length) {
+                const pos = shuffledPositions[index];
+                img.style.gridColumn = pos.x + 1;
+                img.style.gridRow = pos.y + 1;
+
+                setTimeout(() => {
+                  img.classList.add("active");
+                }, Math.random() * 300);
+              }
+            });
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          document.querySelectorAll(".preview-image").forEach((img) => {
+            img.classList.remove("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

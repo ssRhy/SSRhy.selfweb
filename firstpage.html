@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hanyun</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .sidebar {
+        width: 20%;
+        background-color: black;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .main-content {
+        width: 70%;
+        padding: 40px;
+        line-height: 1.6;
+      }
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-links a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        transition: all 0.3s ease;
+      }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .intro-text {
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+      }
+      .self-image {
+        width: 700px;
+        height: 400px;
+        margin-top: 20px;
+        transition: transform 0.5s ease;
+      }
+      .self-image:hover {
+        transform: scale(1.02);
+      }
+      h1 {
+        animation: slideDown 1s ease-out;
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      p {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      p:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      p:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html">First Page</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="work.html">Works</a></li>
+          <li><a href="contact.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <div class="intro-text">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hi, I'm Hanyun. Welcome to my personal website.</p>
+        <p>
+          I'm passionate about creating beautiful and functional web
+          experiences.
+        </p>
+        <p>
+          Feel free to explore my work and get to know more about me through the
+          navigation menu.
+        </p>
+        <div>
+          <img src="images/self.jpg" alt="" class="self-image" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

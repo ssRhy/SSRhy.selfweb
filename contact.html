@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact me</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .sidebar {
+        width: 20%;
+        background-color: black;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .main-content {
+        width: 70%;
+        padding: 20px;
+        width: 70%;
+        padding: 30px;
+        margin-top: 10px;
+        margin-left: 20px;
+        animation: fadeIn 1s ease-in forwards;
+      }
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        margin-top: 50px;
+      }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+      .about-text {
+        color: rgb(10, 10, 10);
+        font-size: 28px;
+        line-height: 3;
+        padding-left: 50px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html">First Page</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="work.html">Works</a></li>
+          <li><a href="contact.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1>Blog</h1>
+    </div>
+  </body>
+</html>

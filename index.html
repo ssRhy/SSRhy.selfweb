@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: black;
+        font-family: Arial, sans-serif;
+      }
+      .welcome-container {
+        text-align: center;
+        color: white;
+      }
+      .welcome-text {
+        font-size: 3em;
+        opacity: 0;
+        animation: fadeIn 2s ease-in forwards;
+      }
+      .enter-button {
+        margin-top: 30px;
+        padding: 15px 40px;
+        font-size: 1.2em;
+        background: none;
+        border: 2px solid white;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeIn 2s ease-in 1s forwards;
+      }
+      .enter-button:hover {
+        background-color: white;
+        color: black;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="welcome-container">
+      <h1 class="welcome-text">Welcome to SSR's Website</h1>
+      <a href="firstpage.html" class="enter-button">Explore</a>
+    </div>
+  </body>
+</html>
