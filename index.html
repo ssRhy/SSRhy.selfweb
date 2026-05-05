@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="i18n.js" defer></script>
+  </head>
+  <body class="home-page">
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()">中文</button>
+    <div
+      class="welcome-container"
+      style="background: rgba(0, 0, 0, 0.8); border: 3px solid white"
+    >
+      <h1 class="welcome-text" data-i18n="index.welcome">Welcome to SSR's Website</h1>
+      <a
+        href="firstpage.html"
+        class="btn-sketch"
+        style="color: white; border-color: white"
+        data-i18n="index.explore"
+        >Explore</a
+      >
+    </div>
+  </body>
+</html>

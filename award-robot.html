@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Light Dance Robot - Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="i18n.js" defer></script>
+  </head>
+  <body>
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()">中文</button>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html" data-i18n="nav.brief-intro">Brief Intro</a></li>
+          <li><a href="about.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="work.html" data-i18n="nav.experiences">Experiences</a></li>
+          <li><a href="contact.html" data-i18n="nav.fun-facts">Fun Facts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <a href="work.html" class="back-link" data-i18n="common.back">← Back to Works</a>
+      <h1 style="font-size: 40px; margin-bottom: 20px" data-i18n="award.robot.title">Light Dance Robot</h1>
+      <p style="font-size: 18px; color: #333; line-height: 1.6" data-i18n="award.robot.desc">
+        The wheel-legged robot generates music and lights in real time according
+        to your dance moves, dancing with you. Through edge computing and motion
+        capture technology, it realizes emotional interaction between robot and
+        human.
+      </p>
+
+      <div class="image-container">
+        <img
+          src="images/dance.jpg"
+          alt="Dancing Robot"
+          style="width: 100%; border-radius: 8px"
+        />
+      </div>
+    </div>
+  </body>
+</html>

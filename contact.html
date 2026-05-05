@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun Facts - SSR</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="i18n.js" defer></script>
+  </head>
+  <body>
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()">中文</button>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html" data-i18n="nav.brief-intro">Brief Intro</a></li>
+          <li><a href="about.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="work.html" data-i18n="nav.experiences">Experiences</a></li>
+          <li><a href="contact.html" data-i18n="nav.fun-facts">Fun Facts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1 data-i18n="contact.title">Fun Facts</h1>
+
+      <!-- Hobby Section -->
+      <div class="section">
+        <h2 data-i18n="contact.hobbies">Hobbies</h2>
+        <div class="section-layout">
+          <div class="section-text sketch-box">
+            <p data-i18n="contact.hobbies-desc">
+              Enjoys photography; playing chess; sometimes ponders philosophy;
+              loves delicious food. Likes to participate in Hackathons, travel
+              around, and meet all kinds of interesting people!
+            </p>
+          </div>
+          <div class="hobby-gallery">
+            <div class="polaroid">
+              <img src="images/photo4.jpg" alt="Hobby 1" />
+              <div class="polaroid-caption" data-i18n="hobby.photography">Photography</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/photo1.jpg" alt="Hobby 2" />
+              <div class="polaroid-caption" data-i18n="hobby.travel">Travel</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/photo2.jpg" alt="Hobby 3" />
+              <div class="polaroid-caption" data-i18n="hobby.explore">Explore</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/photo3.jpg" alt="Hobby 4" />
+              <div class="polaroid-caption" data-i18n="hobby.moments">Moments</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Life Section -->
+      <div class="section">
+        <h2 data-i18n="contact.daily">Daily Life</h2>
+        <div class="section-layout">
+          <div class="sketch-box section-text">
+            <p style="font-size: 22px" data-i18n="contact.daily-desc">
+              I have a cat and a group of great friends. Used to be a football
+              team goalkeeper #Tifosi. Not very good at expressing myself, but I
+              like innovative, bold, and ambitious things. I make plans but also
+              embrace spontaneity. Stories of earning my "first pot of gold"
+              since childhood from the Internet...
+            </p>
+          </div>
+          <div class="hobby-gallery">
+            <div class="polaroid">
+              <img src="images/cat.jpg" alt="Cat" />
+              <div class="polaroid-caption" data-i18n="hobby.cat">My Kitty</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/friends.jpg" alt="Friends" />
+              <div class="polaroid-caption" data-i18n="hobby.friends">Friends</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/tifosi.jpg" alt="Tifosi" />
+              <div class="polaroid-caption" data-i18n="hobby.tifosi">#Tifosi</div>
+            </div>
+            <div class="polaroid">
+              <img src="images/vr.jpg" alt="VR" />
+              <div class="polaroid-caption" data-i18n="hobby.tech">Tech Life</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="section">
+        <h2 data-i18n="contact.connect">Connect with SSR</h2>
+        <div class="sketch-box">
+          <p style="font-size: 24px" data-i18n="contact.follow">Follow me to learn more:</p>
+          <div class="social-links">
+            <a href="https://github.com/ssRhy" target="_blank">Github</a>
+            <a
+              href="https://www.xiaohongshu.com/user/profile/6108dd890000000001007604"
+              target="_blank"
+              >Xiaohongshu</a
+            >
+          </div>
+          <div class="blog-link">
+            <span data-i18n="contact.visit">Visit my </span
+            ><a
+              href="#"
+              style="color: #000; text-decoration: none; font-weight: bold"
+              ><span data-i18n="contact.blog">Blog →</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

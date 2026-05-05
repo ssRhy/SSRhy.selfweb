@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>about me</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="i18n.js" defer></script>
+  </head>
+  <body>
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()">中文</button>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html" data-i18n="nav.brief-intro">Brief Intro</a></li>
+          <li><a href="about.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="work.html" data-i18n="nav.experiences">Experiences</a></li>
+          <li><a href="contact.html" data-i18n="nav.fun-facts">Fun Facts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1 style="font-size: 60px; margin-bottom: 0" data-i18n="firstpage.title">About me</h1>
+      <div
+        class="profile-section sketch-box"
+        style="
+          display: flex;
+          gap: 40px;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+          align-items: center;
+          flex-wrap: wrap;
+        "
+      >
+        <div class="polaroid" style="transform: rotate(-3deg)">
+          <img
+            src="images/self.jpg"
+            alt="SSR's Profile"
+            style="width: 100%; display: block"
+          />
+          <div class="polaroid-caption" data-i18n="firstpage.me">Me</div>
+        </div>
+        <div class="text-content">
+          <div class="about-text">
+            <p data-i18n="firstpage.intro">Hi, I am Horin, ssR.</p>
+            <p data-i18n="firstpage.description">I am a computer and electronic engineer, designer and maker.</p>
+            <p data-i18n="firstpage.love">
+              I love using technology to create weird, wonderful, and mostly
+              useful things.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

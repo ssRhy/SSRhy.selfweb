@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Skills</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="i18n.js" defer></script>
+  </head>
+  <body>
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()">中文</button>
+    <div class="sidebar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="firstpage.html" data-i18n="nav.brief-intro">Brief Intro</a></li>
+          <li><a href="about.html" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="work.html" data-i18n="nav.experiences">Experiences</a></li>
+          <li><a href="contact.html" data-i18n="nav.fun-facts">Fun Facts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1 style="font-size: 50px" data-i18n="about.title">Technical Skills</h1>
+
+      <div class="skills-section">
+        <div class="skill-category sketch-box">
+          <h2 data-i18n="about.embedded">Embedded Development</h2>
+          <div class="skill-list">
+            <p>
+              <strong data-i18n="about.hardware">Hardware Platforms:</strong> Arduino, ESP32, STM32,
+              Raspberry Pi
+            </p>
+            <p><strong data-i18n="about.languages">Languages & Toolchains:</strong> C/C++</p>
+            <p>
+              <strong data-i18n="about.systems">Systems & Communication:</strong> FreeRTOS, Peripheral
+              Drivers, MQTT, CAN, Modbus, USB, BLE
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-category sketch-box">
+          <h2 data-i18n="about.ai">AI Algorithm Development</h2>
+          <div class="skill-list">
+            <p>OpenCV, MediaPipe, OpenPose</p>
+            <p>
+              <strong data-i18n="about.deep-learning">Deep Learning Frameworks:</strong> TensorFlow/TFLite,
+              PyTorch
+            </p>
+            <p><strong data-i18n="about.lightweight">Lightweight Models:</strong> YOLO Nano</p>
+            <p><strong data-i18n="about.agent">Langchain Agent:</strong> <span data-i18n="about.agent-design">Agent architecture design</span></p>
+          </div>
+        </div>
+
+        <div class="skill-category sketch-box">
+          <h2 data-i18n="about.web">Web / App Development</h2>
+          <div class="skill-list">
+            <p>
+              <strong data-i18n="about.visualization">3D Visualization:</strong> Three.js, WebGL dynamic
+              rendering
+            </p>
+            <p><strong data-i18n="about.mobile">Mobile Development:</strong> React Native</p>
+            <p><strong data-i18n="about.backend">Backend:</strong> Node.js, Python Flask, SQL</p>
+          </div>
+        </div>
+
+        <div class="skill-category sketch-box">
+          <h2 data-i18n="about.other">Other Professional Skills</h2>
+          <div class="skill-list">
+            <p data-i18n="about.hci">
+              <strong>Human-Computer Interaction & Art:</strong> Immersive
+              interaction design, stage lighting art, interactive installation
+              prototyping
+            </p>
+            <p data-i18n="about.business">
+              <strong>Business Acumen:</strong> Market insight, needs analysis,
+              productization thinking, technology-driven business value
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

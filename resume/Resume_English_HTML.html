@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRhy - Resume</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --secondary-accent: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --star-s: #9b59b6;
+            --star-t: #3498db;
+            --star-a: #27ae60;
+            --star-r: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .info-line {
+            font-size: 1.1em;
+            color: var(--light-text);
+            margin: 5px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .award-badge {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* STAR Section */
+        .star-container {
+            display: grid;
+            gap: 12px;
+        }
+
+        .star-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ccc;
+        }
+
+        .star-item.star-s { border-left-color: var(--star-s); }
+        .star-item.star-t { border-left-color: var(--star-t); }
+        .star-item.star-a { border-left-color: var(--star-a); }
+        .star-item.star-r { border-left-color: var(--star-r); }
+
+        .star-label {
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 6px;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .star-label.s { background-color: var(--star-s); }
+        .star-label.t { background-color: var(--star-t); }
+        .star-label.a { background-color: var(--star-a); }
+        .star-label.r { background-color: var(--star-r); }
+
+        .star-content {
+            color: var(--text-color);
+            font-size: 0.95em;
+            padding-left: 10px;
+        }
+
+        .star-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .star-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 4px;
+        }
+
+        .star-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: var(--light-text);
+            font-size: 0.9em;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .project-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            .star-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <h1 class="name">SSRhy</h1>
+        <p class="info-line">Sophomore Student · Computer/Electronic Engineering · Class of 2027</p>
+        <p class="info-line">Target: Embedded Dev / AI & Algorithms / Frontend Dev / Full-Stack Dev</p>
+        <div class="contact-info">
+            <span class="contact-item">📧 your.email@example.com</span>
+            <span class="contact-item">📱 [Your Phone Number]</span>
+        </div>
+    </header>
+
+    <!-- Experience & Projects -->
+    <section class="section">
+        <h2 class="section-title">📜 Experience & Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">1. Scalable HCI 2025 "AdventureX & MIT Midea Lab" Hackathon</h3>
+                <span class="award-badge">🏆 First Prize</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        Scalable HCI 2025 was an international hackathon co-organized with MIT Midea Lab, bringing together top students from MIT, Stanford, Brown University, HIT, NEU, and hardware engineers and entrepreneurs from the Greater Bay Area, totaling over 50 participants.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        As a core team member, responsible for system architecture design and core algorithm implementation.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Designed and implemented a human-computer interaction system architecture based on Emotiv BCI EEG signals</li>
+                            <li>Developed a low-latency (<100ms) real-time EEG signal processing and classification algorithm</li>
+                            <li>Integrated multi-sensor data streams to achieve stable signal acquisition and preprocessing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Stood out from over 50 participants and won the <strong>First Prize</strong></li>
+                            <li>Project was rated as the "Most Commercializable Potential" solution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">2. AdventureX2025</h3>
+                <span class="award-badge">🏆 Best Creative Award & Multi-Agent Runner-up</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        AdventureX2025 was an innovation challenge gathering 800 participants, covering AI, BCI, multi-agent systems, and other tracks.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        Served as Agent System Designer, responsible for designing and implementing the multi-agent collaboration framework and AI interaction logic.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Designed a multi-agent collaboration framework, implementing automatic task allocation and state synchronization mechanisms</li>
+                            <li>Built an Agent architecture based on Langchain, supporting dynamic task decomposition and execution</li>
+                            <li>Developed a real-time communication protocol between EEG devices and embedded systems</li>
+                            <li>Implemented multi-turn conversational interaction, improving user intent understanding accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Won the <strong>Best Creative Award</strong> in the Emotiv BCI track</li>
+                            <li>Won the <strong>Runner-up</strong> (2nd place) in the Multi-Agent track</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">3. AI Health Posture Reminder System</h3>
+                <span class="award-badge">🏆 National Third Prize</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        Prolonged sedentary studying leads to widespread neck and spine problems. Existing solutions suffer from high cost, high latency, and privacy leakage issues.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        As the project lead, led the design and implementation of a low-cost, low-latency intelligent sitting posture monitoring and correction system.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Adopted the hardware architecture of MaixCam edge AI camera + AirBox micro server</li>
+                            <li>Implemented real-time recognition of 17 body key points using YOLOv8-pose model</li>
+                            <li>Used TPU-MLIR toolchain for cloud-side model quantization and optimization</li>
+                            <li>Generated multi-precision bmodel for BM1684X chip and completed edge deployment</li>
+                            <li>Implemented an end-to-end closed-loop system from posture detection to reminder notification</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Won the <strong>National Third Prize</strong> (top 5% among 7400+ teams, 20000+ participants, 500+ universities)</li>
+                            <li>System cost reduced by 80% compared to traditional solutions, with latency under 50ms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">4. RoboMaster 2026 National University Robot Competition</h3>
+                <span class="award-badge">🏆 Combat Third Prize</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        RoboMaster is a top-tier university robot competition in China, testing comprehensive capabilities in mechanics, hardware, and algorithms.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        As a core member, responsible for the design and development of the dart control system.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Designed core control logic for the dart control system based on STM32</li>
+                            <li>Integrated IMU and vision sensors to achieve high-precision target positioning</li>
+                            <li>Optimized control algorithms to improve dart launch accuracy and stability</li>
+                            <li>Completed system integration and debugging, developing and testing automatic targeting and launch functions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Won the <strong>Combat Third Prize</strong></li>
+                            <li>Gained deep understanding of the overall architecture of robot control systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">5. Light Dance Robot Project</h3>
+                <span class="award-badge">🚀 Project Lead</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        Traditional dance robots lack emotional interaction with humans, unable to truly achieve a "shared dance" experience.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        As the project lead, responsible for the entire process from hardware design to algorithm implementation.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Designed the mechanical structure of a wheel-leg hybrid robot</li>
+                            <li>Implemented real-time motion capture based on MediaPipe, recognizing 17 body key points</li>
+                            <li>Developed edge computing module for real-time signal processing on the robot locally</li>
+                            <li>Designed music generation algorithms to dynamically adjust lighting and sound effects based on dance style</li>
+                            <li>Used STM32 to implement multi-degree-of-freedom motion control and real-time coordination</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Achieved real-time emotional interaction between robot and human, completing public display at campus tech festival</li>
+                            <li>Project was rated as an outstanding campus innovation project</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">6. Shenzhen Jiaji Wuxing Technology Co., Ltd.</h3>
+                <span class="award-badge">💼 Frontend Dev & Server Deployment Intern (Remote)</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        Jiaji Wuxing Technology is a company focused on innovative technology applications, dedicated to providing innovative digital solutions for users.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        Served as frontend development and DevOps engineer, responsible for product frontend development, server deployment, and core business feature implementation.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Developed core mobile app modules using React Native, including user authentication, redemption code service, and data management</li>
+                            <li>Designed and implemented a complete redemption code verification system, supporting batch generation, validity management, and exception handling</li>
+                            <li>Completed server environment setup and Docker containerization deployment, optimizing response time to under 200ms</li>
+                            <li>Implemented CI/CD automated deployment process, increasing release frequency from once a week to multiple times daily</li>
+                            <li>Participated in product requirement discussions, providing technical feasibility assessments and solution recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>The redemption code system I was responsible for has stably supported online operations, processing 100,000+ requests with zero incidents</li>
+                            <li>Participated projects successfully launched and in operation, received internship certification and recommendation letter from the company</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">7. Hyper 3D Agent System</h3>
+                <span class="award-badge">🚀 Personal Project</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        Traditional 3D modeling software has a high learning curve, making it difficult for non-professional users to get started quickly.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        Independently designed and implemented an AI-native multimodal 3D modeling system.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Designed multimodal Agent architecture, achieving an end-to-end flow from natural language to 3D model generation</li>
+                            <li>Integrated Large Language Models (LLM) for intent understanding and task decomposition</li>
+                            <li>Developed real-time 3D rendering engine (Three.js + WebGL), supporting user real-time preview and editing</li>
+                            <li>Implemented multi-turn conversational interaction, allowing users to adjust model parameters via natural language</li>
+                            <li>Optimized rendering performance for smooth real-time interaction experience</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Project launched and featured on the AIagent2025 platform</li>
+                            <li>Received platform's featured recommendation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">8. AI Hardware Kickstarter Crowdfunding Project</h3>
+                <span class="award-badge">🏭 Embedded Software Engineer</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S Situation</span>
+                    <div class="star-content">
+                        An AI hardware product for the global market launched a crowdfunding campaign on Kickstarter.
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T Task</span>
+                    <div class="star-content">
+                        Responsible for the embedded software part, participating in the entire process from prototype to production.
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A Action</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Developed embedded control firmware based on ESP32/STM32</li>
+                            <li>Implemented sensor data acquisition and edge preprocessing</li>
+                            <li>Optimized power consumption management to extend device battery life</li>
+                            <li>Assisted in hardware debugging and performance testing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R Result</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>Product successfully met its crowdfunding goal</li>
+                            <li>Received Kickstarter platform certification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+        <h2 class="section-title">🛠️ Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-category-title">Embedded Development</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">STM32</span>
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">FreeRTOS</span>
+                    <span class="skill-tag">MQTT</span>
+                    <span class="skill-tag">CAN</span>
+                    <span class="skill-tag">BLE</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">AI & Algorithms</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">MediaPipe</span>
+                    <span class="skill-tag">OpenPose</span>
+                    <span class="skill-tag">TensorFlow/TFLite</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">YOLOv8</span>
+                    <span class="skill-tag">Langchain Agent</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Web Development</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">Three.js</span>
+                    <span class="skill-tag">WebGL</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python Flask</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Edge Computing</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">TPU-MLIR</span>
+                    <span class="skill-tag">BM1684X</span>
+                    <span class="skill-tag">MaixCam</span>
+                    <span class="skill-tag">Model Quantization & Deployment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>📝 This resume follows the STAR format (Situation, Task, Action, Result)</p>
+        <p>📂 All project experiences are genuine</p>
+    </footer>
+</div>
+
+</body>
+</html>

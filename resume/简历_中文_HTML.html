@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRhy 个人简历</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --secondary-accent: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --star-s: #9b59b6;
+            --star-t: #3498db;
+            --star-a: #27ae60;
+            --star-r: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .info-line {
+            font-size: 1.1em;
+            color: var(--light-text);
+            margin: 5px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .award-badge {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* STAR Section */
+        .star-container {
+            display: grid;
+            gap: 12px;
+        }
+
+        .star-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ccc;
+        }
+
+        .star-item.star-s { border-left-color: var(--star-s); }
+        .star-item.star-t { border-left-color: var(--star-t); }
+        .star-item.star-a { border-left-color: var(--star-a); }
+        .star-item.star-r { border-left-color: var(--star-r); }
+
+        .star-label {
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 6px;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .star-label.s { background-color: var(--star-s); }
+        .star-label.t { background-color: var(--star-t); }
+        .star-label.a { background-color: var(--star-a); }
+        .star-label.r { background-color: var(--star-r); }
+
+        .star-content {
+            color: var(--text-color);
+            font-size: 0.95em;
+            padding-left: 10px;
+        }
+
+        .star-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .star-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 4px;
+        }
+
+        .star-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: var(--light-text);
+            font-size: 0.9em;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .project-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            .star-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <h1 class="name">SSRhy</h1>
+        <p class="info-line">大二学生 · 计算机/电子相关专业 · 2027年毕业</p>
+        <p class="info-line">目标方向：嵌入式开发 / AI算法 / 前端开发 / 全栈开发</p>
+        <div class="contact-info">
+            <span class="contact-item">📧 your.email@example.com</span>
+            <span class="contact-item">📱 [Your Phone Number]</span>
+        </div>
+    </header>
+
+    <!-- Experience & Projects -->
+    <section class="section">
+        <h2 class="section-title">📜 经历与项目</h2>
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">1. Scalable HCI 2025 "AdventureX & MIT Midea Lab" Hackathon</h3>
+                <span class="award-badge">🏆 一等奖</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        Scalable HCI 2025是与MIT Midea Lab合作举办的国际黑客松，汇聚了MIT、斯坦福、布朗大学、哈工大、东北大学等顶尖高校学生，以及大湾区的硬件工程师和创业者，共50余人参与。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        作为团队核心成员，负责系统架构设计与核心算法实现。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>设计并实现了基于Emotiv BCI脑电信号的人机交互系统架构</li>
+                            <li>开发了低延迟（<100ms）实时脑电信号处理与分类算法</li>
+                            <li>整合多传感器数据流，实现稳定的信号采集与预处理流程</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>从50+参赛者中脱颖而出，荣获<strong>一等奖</strong></li>
+                            <li>项目被评为"最具商业化潜力"解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">2. AdventureX2025</h3>
+                <span class="award-badge">🏆 最佳创意奖 & 多智能体亚军</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        AdventureX2025是一场汇聚800名参赛者的创新挑战赛，涵盖AI、BCI、多智能体系统等多个赛道。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        担任Agent系统设计，负责多智能体协作框架与AI交互逻辑的设计与实现。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>设计了多智能体协作框架，实现任务自动分配与状态同步机制</li>
+                            <li>基于Langchain构建Agent架构，支持复杂任务的动态拆解与执行</li>
+                            <li>开发了脑电设备与嵌入式系统的实时通信协议</li>
+                            <li>实现了多轮对话式交互系统，提升用户意图理解准确率</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>获得Emotiv BCI赛道<strong>最佳创意奖</strong></li>
+                            <li>多智能体赛道获得<strong>亚军</strong>（第2名）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">3. AI健康姿势提醒系统</h3>
+                <span class="award-badge">🏆 全国三等奖</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        长期伏案学习导致颈椎、腰椎问题普遍存在，现有解决方案存在成本高、延迟大、隐私泄露等问题。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        作为项目负责人，主导设计并实现一套低成本、低延迟的智能坐姿监测与纠正系统。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>采用MaixCam边缘AI摄像头 + AirBox微服务器的硬件架构</li>
+                            <li>基于YOLOv8-pose模型实现对人体17个关键点的实时识别</li>
+                            <li>使用TPU-MLIR工具链在云端对模型进行量化与优化</li>
+                            <li>生成适用于BM1684X芯片的多精度bmodel模型并完成边缘部署</li>
+                            <li>实现了端到端的坐姿检测→提醒推送闭环系统</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>获得<strong>全国三等奖</strong>（7400+支队伍、20000+师生、500+高校中排名前5%）</li>
+                            <li>系统成本低于传统方案80%，延迟低于50ms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">4. RoboMaster 2026 全国大学生机器人大赛</h3>
+                <span class="award-badge">🏆 对抗赛三等奖</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        RoboMaster机甲大师赛是国内顶级的大学生机器人竞赛，考验机械、硬件、算法等综合能力。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        作为核心成员，负责飞镖控制系统的设计与研发工作。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>基于STM32设计飞镖控制系统的核心控制逻辑</li>
+                            <li>集成IMU与视觉传感器，实现高精度目标定位</li>
+                            <li>优化控制算法，提升飞镖发射精度与稳定性</li>
+                            <li>完成系统联调，实现自动瞄准与发射功能的开发与测试</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>获得<strong>对抗赛三等奖</strong></li>
+                            <li>深入理解了机器人控制系统的整体架构</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">5. 光舞机器人项目</h3>
+                <span class="award-badge">🏆 主导</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        传统的舞蹈机器人缺乏与人类的情感互动，无法真正实现"共舞"体验。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        作为项目主导人，负责从硬件设计到算法实现的全流程开发。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>设计了轮腿混合机器人机械结构</li>
+                            <li>基于MediaPipe实现实时动作捕捉，识别17个身体关键点</li>
+                            <li>开发边缘计算模块，在机器人本地完成实时信号处理</li>
+                            <li>设计音乐生成算法，根据舞步风格动态调整灯光和音效</li>
+                            <li>使用STM32实现多自由度运动控制与实时协调</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>实现了机器人与人的实时情感交互，完成校园科技节公开展示</li>
+                            <li>项目被评为校级优秀创新项目</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">6. 深圳市甲己无形科技有限公司</h3>
+                <span class="award-badge">💼 前端开发 & 服务器部署实习（远程）</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        甲己无形科技是一家聚焦创新技术应用的公司，致力于为用户提供创新的数字化解决方案。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        担任前端开发与运维工程师，负责产品前端开发、服务器部署及核心业务功能实现。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>使用React Native开发移动端App核心功能模块，包括用户认证、兑换码服务、数据管理等</li>
+                            <li>设计并实现了完整的兑换码核销系统，支持批量生成、有效期管理、异常状态处理</li>
+                            <li>完成了服务器环境搭建与Docker容器化部署，优化响应时间至200ms以内</li>
+                            <li>实现了CI/CD自动化部署流程，将发布频率从每周1次提升至每日多次</li>
+                            <li>参与产品需求讨论，从技术角度提供可行性评估与方案建议</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>负责的兑换码系统已稳定支撑线上运营，累计处理请求10万+，零事故运行</li>
+                            <li>参与的项目成功上线运营，获得公司颁发的实习证明与推荐信</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">7. Hyper 3D Agent系统</h3>
+                <span class="award-badge">🚀 个人项目</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        传统3D建模软件学习成本高，非专业用户难以快速上手。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        独立设计并实现一套AI原生的多模态3D建模系统。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>设计多模态Agent架构，实现自然语言到3D模型生成的端到端流程</li>
+                            <li>集成大语言模型（LLM）进行意图理解与任务拆解</li>
+                            <li>开发实时3D渲染引擎（Three.js + WebGL），支持用户实时预览与编辑</li>
+                            <li>实现多轮对话式交互，用户可通过自然语言调整模型参数</li>
+                            <li>优化渲染性能，实现流畅的实时交互体验</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>项目在AIagent2025平台上线展示</li>
+                            <li>获得平台精选推荐</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">8. AI硬件KickStarter众筹项目</h3>
+                <span class="award-badge">🏭 嵌入式软件</span>
+            </div>
+            <div class="star-container">
+                <div class="star-item star-s">
+                    <span class="star-label s">S 背景</span>
+                    <div class="star-content">
+                        一款面向全球市场的AI硬件产品在KickStarter平台发起众筹。
+                    </div>
+                </div>
+                <div class="star-item star-t">
+                    <span class="star-label t">T 任务</span>
+                    <div class="star-content">
+                        负责嵌入式软件部分，参与产品从原型到生产的全过程。
+                    </div>
+                </div>
+                <div class="star-item star-a">
+                    <span class="star-label a">A 行动</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>基于ESP32/STM32开发嵌入式控制固件</li>
+                            <li>实现传感器数据采集与边缘预处理</li>
+                            <li>优化功耗管理，延长设备续航时间</li>
+                            <li>协助完成硬件调试与性能测试</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="star-item star-r">
+                    <span class="star-label r">R 结果</span>
+                    <div class="star-content">
+                        <ul class="star-list">
+                            <li>产品成功完成众筹目标</li>
+                            <li>获得KickStarter平台认证</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+        <h2 class="section-title">🛠️ 技术技能</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-category-title">嵌入式开发</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">STM32</span>
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">FreeRTOS</span>
+                    <span class="skill-tag">MQTT</span>
+                    <span class="skill-tag">CAN</span>
+                    <span class="skill-tag">BLE</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">AI算法</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">MediaPipe</span>
+                    <span class="skill-tag">OpenPose</span>
+                    <span class="skill-tag">TensorFlow/TFLite</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">YOLOv8</span>
+                    <span class="skill-tag">Langchain Agent</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Web开发</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">Three.js</span>
+                    <span class="skill-tag">WebGL</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python Flask</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">边缘计算</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">TPU-MLIR</span>
+                    <span class="skill-tag">BM1684X</span>
+                    <span class="skill-tag">MaixCam</span>
+                    <span class="skill-tag">模型量化与部署</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>📝 本简历采用STAR格式（Situation, Task, Action, Result）撰写</p>
+        <p>📂 所有项目经历均为真实经历</p>
+    </footer>
+</div>
+
+</body>
+</html>
