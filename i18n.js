@@ -117,7 +117,7 @@ const translations = {
 
     // First page
     'firstpage.title': '关于我',
-    'firstpage.intro': '你好，我是 Horin，也叫 ssR。',
+    'firstpage.intro': '你好，我是韩蕴',
     'firstpage.description': '我是一名计算机与电子工程师、设计师和创客。',
     'firstpage.love': '我喜欢用科技创造奇特、有趣且有用的东西。',
     'firstpage.me': '我',
@@ -149,10 +149,10 @@ const translations = {
 
     // Work page - Project 1
     'work.project1.title': 'AI 硬件 KickStarter 众筹',
-    'work.project1.desc': 'AI 硬件走向全球。参与嵌入式开发。',
+    'work.project1.desc': 'AI 硬件众筹。参与嵌入式开发。',
 
     // Work page - Project 2 (Company)
-    'work.project2.title': '深圳嘉翼五星科技有限公司',
+    'work.project2.title': '深圳甲乙无形科技有限公司',
     'work.project2.desc': '负责产品前端开发和服务器部署。实现用户交互并提升用户体验。设计并实现了完整的兑换码验证系统，支持批量生成、有效期管理和异常处理。完成服务器和数据库的搭建与部署，优化响应时间，成功上线运营。',
 
     // Work page - Project 3
@@ -166,20 +166,20 @@ const translations = {
     // Awards
     'award.scalable-hci.title': 'Scalable HCI 2025 "AdventureX & MIT Midea Lab" 黑客松 一等奖',
     'award.adventurez.title': 'AdventureX2025 Emotiv BCI 最佳创意奖及多智能体亚军',
-    'award.geek-camp.title': '深圳创新研究院极客训练营黑客松',
+    'award.geek-camp.title': '深圳科创院极客训练营黑客松',
     'award.pose.title': 'AI 健康坐姿提醒系统',
     'award.pose.desc': '主导开发了基于边缘计算的 AI 健康坐姿提醒系统，荣获国家三等奖。',
     'award.robomaster.title': '第二十四届全国大学生机器人大赛 RoboMaster 2025 机甲大师高校联赛暨 RAICOM 机器人竞赛',
     'award.baidu.title': '中国机器人及人工智能大赛百度 Apollo Spark 自动驾驶竞赛',
     'award.shenicest.title': 'SheNicest 核心成员',
-    'award.shenicest.desc': '参与组织深圳硬件黑客松，包括选手招募、现场执行和商业招揽...',
+    'award.shenicest.desc': '参与组织举办深圳硬件黑客松，包括选手招募、现场执行...',
 
     // Contact page
     'contact.title': '趣味生活',
     'contact.hobbies': '爱好',
     'contact.hobbies-desc': '喜欢摄影、下棋、有时思考哲学、热爱美食。喜欢参加黑客松、四处旅行，认识各种有趣的人！',
     'contact.daily': '日常生活',
-    'contact.daily-desc': '我有一只猫和一群好朋友。曾经是足球队守门员 #Tifosi。不太擅长表达自己，但我喜欢创新、大胆、有野心的事情。我会做计划但也喜欢随性...',
+    'contact.daily-desc': '我有一只猫和一群好朋友。曾经当过足球队守门员 #Tifosi。不太擅长表达自己，但我喜欢创新、大胆、有野心的事情。我会做计划但也喜欢随性...',
     'contact.connect': '关注 SSR',
     'contact.follow': '关注我了解更多：',
     'contact.visit': '访问我的 ',
@@ -200,8 +200,8 @@ const translations = {
     'award.robot.desc': '轮腿机器人根据你的舞步实时生成音乐和灯光，与你共舞。通过边缘计算和动作捕捉技术，实现机器人与人的情感交互。',
     'award.shenzhen.title': '深圳黑客松',
     'award.shenzhen.desc': '深圳黑客松项目成果展示。',
-    'award.robomaster.detail.title': 'RoboMaster 2025',
-    'award.robomaster.detail.desc': '第二十四届全国大学生机器人大赛 RoboMaster 2025 机甲大师高校联赛暨 RAICOM 机器人竞赛。',
+    'award.robomaster.detail.title': 'RoboMaster 2026',
+    'award.robomaster.detail.desc': '第二十四届全国大学生机器人大赛 RoboMaster 2026 机甲大师高校联赛。',
 
     // Common
     'common.back': '← 返回作品',
